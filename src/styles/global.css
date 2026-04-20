@@ -4,11 +4,14 @@
   --font-sans: "DM Sans", sans-serif;
   --font-display: "Anton", sans-serif;
 
-  --color-brand-accent: hsl(330, 100%, 50%);
-  --color-brand-accent-light: hsl(330, 100%, 65%);
+  --color-brand-accent: hsl(25, 100%, 55%);
+  --color-brand-accent-light: hsl(15, 100%, 58%);
   --color-brand-blue: hsl(216, 100%, 50%);
   --color-brand-pink: hsl(330, 100%, 50%);
   --color-brand-yellow: hsl(60, 100%, 50%);
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 @utility grain {
@@ -53,14 +56,177 @@
   background-size: 24px 24px;
 }
 
+@utility gradient-warm-number {
+  background-image: linear-gradient(to right in oklch, var(--color-brand-pink), hsl(25, 100%, 50%), hsl(45, 100%, 50%));
+  background-size: calc(var(--steps, 3) * 100%) 100%;
+  background-position-x: calc(var(--i, 0) / (var(--steps, 3) - 1) * 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility gradient-warm-dot {
+  background-image: linear-gradient(to right in oklch, var(--color-brand-pink), hsl(25, 100%, 50%), hsl(45, 100%, 50%));
+  background-size: calc(var(--steps, 3) * 100%) 100%;
+  background-position-x: calc(var(--i, 0) / (var(--steps, 3) - 1) * 100%);
+}
+
+@utility gradient-cta-warm {
+  background-image: linear-gradient(to right in oklch, var(--color-brand-pink), hsl(5, 90%, 50%));
+}
+
+@utility btn-3d-bevel {
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.25),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15),
+    0 10px 15px -3px hsl(25 100% 55% / 0.25),
+    0 4px 6px -4px hsl(25 100% 55% / 0.25);
+
+  @variant hover {
+    @media (hover: hover) and (pointer: fine) {
+      box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.3),
+        inset 0 -1px 0 rgba(0, 0, 0, 0.2),
+        0 14px 20px -4px hsl(25 100% 55% / 0.25),
+        0 5px 8px -5px hsl(25 100% 55% / 0.25);
+    }
+  }
+
+  @variant active {
+    box-shadow:
+      inset 0 2px 3px rgba(0, 0, 0, 0.25),
+      inset 0 -1px 0 rgba(255, 255, 255, 0.1),
+      0 2px 4px -1px hsl(25 100% 55% / 0.15);
+  }
+}
+
+
 @utility link-underline {
   background-image: linear-gradient(to right, currentColor, currentColor);
   background-size: 0% 1px;
   background-position: left bottom;
   background-repeat: no-repeat;
-  transition: background-size 0.3s;
+  transition: background-size 0.2s cubic-bezier(0.23, 1, 0.32, 1), color 0.2s cubic-bezier(0.23, 1, 0.32, 1);
 
   @variant hover {
     background-size: 100% 1px;
+  }
+
+  .group:hover & {
+    background-size: 100% 1px;
+  }
+}
+
+/* Testimonial typing animation */
+[data-testimonial] {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 200ms var(--ease-out-strong), transform 200ms var(--ease-out-strong);
+}
+
+[data-testimonial].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+[data-testimonial] .typing-dots {
+  transition: opacity 150ms ease-out;
+}
+
+[data-testimonial].is-sent .typing-dots {
+  opacity: 0;
+}
+
+[data-testimonial] .testimonial-text {
+  transition: opacity 150ms var(--ease-out-strong);
+}
+
+[data-testimonial].is-sent .testimonial-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.typing-dots span {
+  animation: typing-bounce 1.2s infinite ease-in-out both;
+}
+
+.typing-dots span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.typing-dots span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes typing-bounce {
+  0%, 80%, 100% {
+    transform: scale(0.7);
+    opacity: 0.35;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* Scroll-triggered animations */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 300ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  transition-delay: calc(var(--stagger, 0) * 75ms);
+}
+
+[data-animate].in-view,
+.in-view [data-animate] {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  [data-testimonial] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+
+  [data-testimonial] .testimonial-text {
+    visibility: visible;
+  }
+
+  .typing-dots {
+    display: none;
+  }
+
+  .typing-dots span {
+    animation: none;
+  }
+}
+
+@media (scripting: none) {
+  [data-animate] {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-testimonial] {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-testimonial] .testimonial-text {
+    visibility: visible;
+  }
+
+  .typing-dots {
+    display: none;
   }
 }

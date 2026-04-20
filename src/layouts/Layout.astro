@@ -20,6 +20,45 @@ const { title = 'Sander Janssen — Web Development' } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,100..1000&display=swap" rel="stylesheet" />
+    <script is:inline>
+      document.addEventListener('DOMContentLoaded', function () {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('in-view');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { rootMargin: '0px 0px -15% 0px' });
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            document.querySelectorAll('[data-animate], [data-animate-parent]').forEach(function (el) { observer.observe(el); });
+          });
+        });
+
+        var group = document.querySelector('[data-testimonial-group]');
+        if (group) {
+          var testimonialObserver = new IntersectionObserver(function (entries) {
+            if (!entries[0].isIntersecting) return;
+            testimonialObserver.disconnect();
+            var items = group.querySelectorAll('[data-testimonial]');
+            var offset = 0;
+            items.forEach(function (el) {
+              var chars = parseInt(el.dataset.chars) || 40;
+              var typingDuration = Math.min(300 + chars * 3, 800);
+              var showDelay = offset;
+              var sendDelay = offset + typingDuration;
+
+              setTimeout(function () { el.classList.add('is-visible'); }, showDelay);
+              setTimeout(function () { el.classList.add('is-sent'); }, sendDelay);
+
+              offset = sendDelay + 150;
+            });
+          }, { rootMargin: '0px 0px -10% 0px' });
+          testimonialObserver.observe(group);
+        }
+      });
+    </script>
   </head>
   <body>
     <div class="isolate">

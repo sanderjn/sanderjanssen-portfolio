@@ -13,10 +13,16 @@ const { class: className } = Astro.props;
     <PaintFlowShader class="size-full" />
   </div>
   <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
-    <p class="text-base font-medium text-brand-accent">Sander Janssen · Web Development</p>
-    <h1 class="mt-4 max-w-[20ch] font-display text-5xl uppercase text-balance text-white sm:text-6xl lg:text-7xl">High-quality websites for cultural & social organizations</h1>
-    <div class="mt-10 flex flex-wrap items-start gap-8">
-      <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="rounded-full bg-brand-accent px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-brand-accent/25 transition duration-200 hover:shadow-xl hover:shadow-brand-accent/30 hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">Say hello</a>
+    <header data-animate class="flex items-center gap-3">
+      <img src="/img/profile.jpg" alt="Sander Janssen" class="size-10 rounded-full object-cover outline-1 -outline-offset-1 outline-white/10" />
+      <div>
+        <p class="text-base font-medium text-white">Sander Janssen</p>
+        <p class="text-base text-neutral-500">Web Development</p>
+      </div>
+    </header>
+    <h1 data-animate style="--stagger: 1" class="mt-6 max-w-[20ch] font-display text-5xl uppercase text-balance text-white sm:text-6xl lg:text-7xl">High-quality websites for cultural & social organizations</h1>
+    <div data-animate style="--stagger: 2" class="mt-10 flex flex-wrap items-start gap-8">
+      <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="rounded-full gradient-cta-warm px-8 py-4 text-lg font-semibold text-white btn-3d-bevel transition-[transform,box-shadow] duration-160 ease-out-strong active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">Say hello</a>
       <div class="max-w-[48ch] space-y-4">
         <p class="text-lg text-pretty text-neutral-300">Solid, premium websites without overcomplicated tech. Let's dig into the "why" behind your ideas and build features that actually move the needle.</p>
         <p class="text-lg text-pretty text-neutral-400">I work directly with you, move fast, and build websites preferably for organizations driven by purpose, not just profit.</p>

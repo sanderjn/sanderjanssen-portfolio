@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ExternalLinkIcon from '../components/ExternalLinkIcon.astro';
-import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import NumberedListItem from '../components/NumberedListItem.astro';
 import Testimonial from '../components/Testimonial.astro';
@@ -12,18 +11,17 @@ import Footer from '../components/Footer.astro';
 <Layout>
   <div class="min-h-dvh overflow-x-hidden bg-neutral-950 font-sans text-neutral-100 grain">
 
-    <Header />
-    <Hero />
+    <Hero class="pt-16 lg:pt-20" />
 
     <section class="border-t border-white/10 py-16 lg:py-20">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <div class="grid gap-16 lg:grid-cols-2">
           <div>
-            <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-white">What I do</h2>
-            <ul role="list" class="mt-8 space-y-6">
-              <NumberedListItem number="01">Functional web design</NumberedListItem>
-              <NumberedListItem number="02">Custom website development</NumberedListItem>
-              <NumberedListItem number="03">CMS development (<a href="https://statamic.com/partners/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent hover:text-brand-accent-light">Statamic Partner <ExternalLinkIcon /></a>)</NumberedListItem>
+            <h2 data-animate class="font-display text-3xl uppercase tracking-wide text-balance text-white">What I do</h2>
+            <ul data-animate-parent role="list" class="mt-8 space-y-6">
+              <NumberedListItem number="01" delay={0} color="gradient-warm-number [--i:0]">Functional web design</NumberedListItem>
+              <NumberedListItem number="02" delay={1} color="gradient-warm-number [--i:1]">Custom website development</NumberedListItem>
+              <NumberedListItem number="03" delay={2} color="gradient-warm-number [--i:2]">CMS development (<a href="https://statamic.com/partners/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent link-underline hover:text-brand-accent-light">Statamic Partner <ExternalLinkIcon /></a>)</NumberedListItem>
             </ul>
           </div>
           <div>
@@ -40,8 +38,8 @@ import Footer from '../components/Footer.astro';
 
     <section class="border-t border-white/10 py-20 lg:py-28">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-white">Client feedback</h2>
-        <div class="mt-12 space-y-10">
+        <h2 data-animate class="font-display text-3xl uppercase tracking-wide text-balance text-white">Client feedback</h2>
+        <div data-testimonial-group class="mt-12 space-y-10">
           <Testimonial
             image="/img/olivier-designpraktijk.jpeg"
             quote={`The website has turned out really well! It feels smooth, responsive works as it should, and it includes (micro)transitions that truly enhance the website.`}
@@ -67,7 +65,7 @@ import Footer from '../components/Footer.astro';
 
     <section class="border-t border-white/10 py-20 lg:py-28">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-white">Recent projects</h2>
+        <h2 data-animate class="font-display text-3xl uppercase tracking-wide text-balance text-white">Recent projects</h2>
         <div class="mt-12 space-y-40">
           <ProjectCard
             href="https://www.boringfestival.nl/"
@@ -143,21 +141,21 @@ import Footer from '../components/Footer.astro';
 
     <section class="border-t border-white/10 py-20 lg:py-28">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
-        <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-white">About me</h2>
+        <h2 data-animate class="font-display text-3xl uppercase tracking-wide text-balance text-white">About me</h2>
         <div class="mt-8 grid gap-12 lg:grid-cols-[3fr_2fr]">
-          <div>
+          <div data-animate style="--stagger: 1">
             <p class="max-w-2xl text-xl text-pretty text-neutral-300">Back in 2012 I built my first website for my driving instructor. Terrible code, but it worked, and I got 10 free driving lessons out of it.</p>
             <p class="mt-4 max-w-2xl text-lg text-pretty text-neutral-400">These days, I'm selective about the projects I take on. I want to work with organizations doing meaningful work: creative projects, social impact, things that actually help people.</p>
             <p class="mt-4 max-w-2xl text-lg text-pretty text-neutral-400">If you're doing work that matters, let's talk.</p>
-            <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="mt-8 inline-flex rounded-full bg-brand-accent px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-accent/25 transition duration-200 hover:shadow-xl hover:shadow-brand-accent/30 hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">Say hello</a>
+            <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="mt-8 inline-flex rounded-full gradient-cta-warm px-7 py-3.5 text-base font-semibold text-white btn-3d-bevel transition-[transform,box-shadow] duration-160 ease-out-strong active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">Say hello</a>
           </div>
           <div>
-            <h3 class="font-display text-2xl uppercase tracking-wide text-balance text-white">When I'm not coding, I'm probably...</h3>
-            <ul role="list" class="mt-6 space-y-4">
-              <li class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full bg-brand-accent h-lh" aria-hidden="true"></span>Surfing</li>
-              <li class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full bg-brand-accent h-lh" aria-hidden="true"></span>Playing with AI</li>
-              <li class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full bg-brand-accent h-lh" aria-hidden="true"></span>Listening to a podcast</li>
-              <li class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full bg-brand-accent h-lh" aria-hidden="true"></span><span>Searching for tracks to use in <a href="https://soundcloud.com/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent link-underline hover:text-brand-accent-light">my DJ sets <ExternalLinkIcon class="size-3.5" /></a></span></li>
+            <h3 data-animate style="--stagger: 1" class="font-display text-2xl uppercase tracking-wide text-balance text-white">When I'm not coding, I'm probably...</h3>
+            <ul data-animate-parent role="list" class="mt-6 space-y-4">
+              <li data-animate style="--stagger: 0" class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full gradient-warm-dot [--i:0] [--steps:4] h-lh" aria-hidden="true"></span>Surfing</li>
+              <li data-animate style="--stagger: 1" class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full gradient-warm-dot [--i:1] [--steps:4] h-lh" aria-hidden="true"></span>Playing with AI</li>
+              <li data-animate style="--stagger: 2" class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full gradient-warm-dot [--i:2] [--steps:4] h-lh" aria-hidden="true"></span>Listening to a podcast</li>
+              <li data-animate style="--stagger: 3" class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full gradient-warm-dot [--i:3] [--steps:4] h-lh" aria-hidden="true"></span><span>Searching for tracks to use in <a href="https://soundcloud.com/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent link-underline hover:text-brand-accent-light">my DJ sets <ExternalLinkIcon class="size-3.5" /></a></span></li>
             </ul>
           </div>
         </div>
