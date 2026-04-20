@@ -1,0 +1,170 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ExternalLinkIcon from '../components/ExternalLinkIcon.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import NumberedListItem from '../components/NumberedListItem.astro';
+import Testimonial from '../components/Testimonial.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout>
+  <div class="min-h-dvh overflow-x-hidden bg-neutral-950 font-sans text-neutral-100 grain">
+
+    <Header />
+    <Hero />
+
+    <section class="border-t border-white/10 py-16 lg:py-20">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="grid gap-16 lg:grid-cols-2">
+          <div>
+            <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-white">What I do</h2>
+            <ul role="list" class="mt-8 space-y-6">
+              <NumberedListItem number="01">Functional web design</NumberedListItem>
+              <NumberedListItem number="02">Custom website development</NumberedListItem>
+              <NumberedListItem number="03">CMS development (<a href="https://statamic.com/partners/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent hover:text-brand-accent-light">Statamic Partner <ExternalLinkIcon /></a>)</NumberedListItem>
+            </ul>
+          </div>
+          <div>
+            <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-neutral-600">What I won't do</h2>
+            <ul role="list" class="mt-8 space-y-6">
+              <NumberedListItem number="01" muted>Use pre-made templates</NumberedListItem>
+              <NumberedListItem number="02" muted>Day-to-day maintenance work</NumberedListItem>
+              <NumberedListItem number="03" muted>Build stuff without understanding the why</NumberedListItem>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-white">Client feedback</h2>
+        <div class="mt-12 space-y-10">
+          <Testimonial
+            image="/img/olivier-designpraktijk.jpeg"
+            quote={`The website has turned out really well! It feels smooth, responsive works as it should, and it includes (micro)transitions that truly enhance the website.`}
+            author="Olivier Heida"
+            company="De Designpraktijk"
+          />
+          <Testimonial
+            image="/img/michel-ksf.jpeg"
+            quote="Powerful craftsman!"
+            author="Michel Jansen"
+            company="Kleinstesoepfabriek"
+            align="right"
+          />
+          <Testimonial
+            image="/img/wouter-wnc.jpeg"
+            quote={`Reliable \u2014 engaged \u2014 result-oriented \u2014 will not just assume anything`}
+            author="Wouter de Vries"
+            company="World Nautic Center"
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-white">Recent projects</h2>
+        <div class="mt-12 space-y-40">
+          <ProjectCard
+            href="https://www.boringfestival.nl/"
+            image="/img/boring.jpg"
+            tags="Web development · Statamic"
+            title="Boring Festival 2026"
+            description="A multilingual Statamic site with act filtering and a live display system for performances."
+            domain="boringfestival.nl"
+          />
+          <ProjectCard
+            href="https://www.quickhost.nl/"
+            image="/img/quickhost.jpg"
+            tags="Web design · Web development · Statamic"
+            title="Quickhost"
+            description="A knowledge base and restyled order system that feels like one seamless experience."
+            domain="quickhost.nl"
+            reverse
+          />
+          <ProjectCard
+            href="https://leqrmenu.com"
+            image="/img/leqrmenu.jpg"
+            tags="Web design · Web development · Laravel"
+            title="LEQR menu"
+            description="A digital menu system for restaurants with real-time availability, dynamic pricing, and dietary filtering."
+            domain="leqrmenu.com"
+          />
+          <ProjectCard
+            href="https://fodm.app"
+            image="/img/fodmapp.jpg"
+            tags="Web development · Laravel · Livewire"
+            title="FODM.app"
+            description="A recipe manager for the FODMAP diet, histamine intolerance, and other dietary needs."
+            domain="fodm.app"
+            reverse
+          />
+          <ProjectCard
+            href="https://www.villadelvallecallosa.com/"
+            image="/img/vdv.jpg"
+            tags="Web design · Web development"
+            title="Villa del Valle"
+            description="A multilingual WordPress site with seamless booking integration for a villa on the Costa Blanca."
+            domain="villadelvallecallosa.com"
+          />
+          <ProjectCard
+            href="https://www.worldnauticcenter.nl/"
+            image="/img/wnc.jpg"
+            tags="UX consultancy · Web development · Design system"
+            title="World Nautic Center"
+            description="A new front-end system improving design consistency and user experience across 10+ websites."
+            domain="worldnauticcenter.nl"
+            reverse
+          />
+          <ProjectCard
+            href="https://kleinstesoepfabriek.nl/"
+            image="/img/ksf.jpg"
+            tags="Web development · E-commerce"
+            title="Kleinstesoepfabriek"
+            description="An e-commerce site with extensive WooCommerce customization for organic and fairtrade soups."
+            domain="kleinstesoepfabriek.nl"
+          />
+          <ProjectCard
+            href="https://conversiekracht.nl"
+            image="/img/boonstra.jpg"
+            tags="Web development · WordPress"
+            title="Conversiekracht"
+            description="A WordPress site with interactive features including a revenue calculator for conversion optimization."
+            domain="conversiekracht.nl"
+            reverse
+          />
+        </div>
+      </div>
+    </section>
+
+    <section class="border-t border-white/10 py-20 lg:py-28">
+      <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-white">About me</h2>
+        <div class="mt-8 grid gap-12 lg:grid-cols-[3fr_2fr]">
+          <div>
+            <p class="max-w-2xl text-xl text-pretty text-neutral-300">Back in 2012 I built my first website for my driving instructor. Terrible code, but it worked, and I got 10 free driving lessons out of it.</p>
+            <p class="mt-4 max-w-2xl text-lg text-pretty text-neutral-400">These days, I'm selective about the projects I take on. I want to work with organizations doing meaningful work: creative projects, social impact, things that actually help people.</p>
+            <p class="mt-4 max-w-2xl text-lg text-pretty text-neutral-400">If you're doing work that matters, let's talk.</p>
+            <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="mt-8 inline-flex rounded-full bg-brand-accent px-7 py-3.5 text-base font-semibold text-white shadow-lg shadow-brand-accent/25 transition duration-200 hover:shadow-xl hover:shadow-brand-accent/30 hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">Say hello</a>
+          </div>
+          <div>
+            <h3 class="font-display text-2xl uppercase tracking-wide text-balance text-white">When I'm not coding, I'm probably...</h3>
+            <ul role="list" class="mt-6 space-y-4">
+              <li class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full bg-brand-accent h-lh" aria-hidden="true"></span>Surfing</li>
+              <li class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full bg-brand-accent h-lh" aria-hidden="true"></span>Playing with AI</li>
+              <li class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full bg-brand-accent h-lh" aria-hidden="true"></span>Listening to a podcast</li>
+              <li class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full bg-brand-accent h-lh" aria-hidden="true"></span><span>Searching for tracks to use in <a href="https://soundcloud.com/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent link-underline hover:text-brand-accent-light">my DJ sets <ExternalLinkIcon class="size-3.5" /></a></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+
+  </div>
+</Layout>

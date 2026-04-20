@@ -1,0 +1,26 @@
+---
+interface Props {
+  image: string;
+  quote: string;
+  author: string;
+  company: string;
+  align?: 'left' | 'right';
+  class?: string;
+}
+
+const { image, quote, author, company, align = 'left', class: className } = Astro.props;
+---
+
+<div class:list={[
+  'flex items-end gap-5',
+  align === 'left' ? 'lg:max-w-[75%]' : 'lg:ml-auto lg:max-w-[75%] lg:flex-row-reverse',
+  className
+]}>
+  <img src={image} alt="" class="size-12 shrink-0 rounded-full object-cover outline-1 -outline-offset-1 outline-white/10" />
+  <div>
+    <blockquote class:list={['rounded-3xl bg-white/5 px-8 py-6', align === 'left' ? 'rounded-bl-lg' : 'rounded-br-lg']}>
+      <p class="text-lg font-medium text-white text-pretty">{quote}</p>
+    </blockquote>
+    <p class:list={['mt-2 text-base text-neutral-400', align === 'right' && 'lg:text-right']}>{author} &middot; {company}</p>
+  </div>
+</div>

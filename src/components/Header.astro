@@ -1,0 +1,28 @@
+---
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<header class:list={['py-4', className]}>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <nav class="flex items-center justify-between">
+      <a href="/" class="group flex items-center gap-3" aria-label="Homepage">
+        <img src="/img/profile.jpg" alt="Sander Janssen" class="size-10 rounded-full object-cover outline-1 -outline-offset-1 outline-white/10 transition duration-300 group-hover:scale-105" />
+        <div>
+          <p class="text-base font-medium text-white">Sander Janssen</p>
+          <p class="text-base text-neutral-500">Front-end Developer</p>
+        </div>
+      </a>
+      <div class="flex items-center gap-5">
+        <p class="flex items-center gap-2 text-base text-neutral-500 max-sm:hidden">
+          <span class="size-1.5 rounded-full bg-brand-accent" aria-hidden="true"></span>
+          Available for work
+        </p>
+        <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="rounded-full border border-white/8 px-5 py-2 text-base text-neutral-300 transition hover:border-white/15 hover:text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">Get in touch</a>
+      </div>
+    </nav>
+  </div>
+</header>

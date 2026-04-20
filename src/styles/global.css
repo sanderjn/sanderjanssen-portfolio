@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Anton", sans-serif;
+
+  --color-brand-accent: hsl(330, 100%, 50%);
+  --color-brand-accent-light: hsl(330, 100%, 65%);
+  --color-brand-blue: hsl(216, 100%, 50%);
+  --color-brand-pink: hsl(330, 100%, 50%);
+  --color-brand-yellow: hsl(60, 100%, 50%);
+}
+
+@utility grain {
+  position: relative;
+
+  &::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+@utility pattern-dots {
+  background-image: radial-gradient(circle, #ddd5c8 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+@utility pattern-crosshatch {
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 9px, #ddd5c8 9px, #ddd5c8 10px),
+    repeating-linear-gradient(-45deg, transparent, transparent 9px, #ddd5c8 9px, #ddd5c8 10px);
+}
+
+@utility pattern-diagonal {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 7px,
+    #ddd5c8 7px,
+    #ddd5c8 8px
+  );
+}
+
+@utility pattern-grid {
+  background-image:
+    linear-gradient(#ddd5c8 1px, transparent 1px),
+    linear-gradient(90deg, #ddd5c8 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+
+@utility link-underline {
+  background-image: linear-gradient(to right, currentColor, currentColor);
+  background-size: 0% 1px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s;
+
+  @variant hover {
+    background-size: 100% 1px;
+  }
+}

@@ -1,0 +1,19 @@
+---
+import ExternalLinkIcon from './ExternalLinkIcon.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<footer class:list={['border-t border-white/10 py-12', className]}>
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <p class="text-base text-neutral-500">Built with care in Haarlem</p>
+    <div class="mt-4 flex gap-6">
+      <a href="https://bsky.app/profile/sanderjanssen.nl" target="_blank" rel="noopener noreferrer" class="text-base text-neutral-400 link-underline hover:text-brand-accent">Bluesky <ExternalLinkIcon class="size-3.5" /></a>
+      <a href="https://github.com/sanderjn" target="_blank" rel="noopener noreferrer" class="text-base text-neutral-400 link-underline hover:text-brand-accent">GitHub <ExternalLinkIcon class="size-3.5" /></a>
+    </div>
+  </div>
+</footer>

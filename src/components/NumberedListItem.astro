@@ -1,0 +1,16 @@
+---
+interface Props {
+  number: string;
+  muted?: boolean;
+  class?: string;
+}
+
+const { number, muted = false, class: className } = Astro.props;
+---
+
+<li class:list={['flex gap-4', className]}>
+  <span class:list={['font-display text-3xl', muted ? 'text-neutral-700' : 'text-brand-accent']}>{number}</span>
+  <span class:list={['pt-1 text-lg', muted ? 'text-neutral-600' : 'text-neutral-300']}>
+    <slot />
+  </span>
+</li>

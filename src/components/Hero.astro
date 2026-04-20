@@ -1,0 +1,26 @@
+---
+import PaintFlowShader from './PaintFlowShader.astro';
+
+interface Props {
+  class?: string;
+}
+
+const { class: className } = Astro.props;
+---
+
+<section class:list={['relative overflow-hidden py-20 lg:py-28', className]}>
+  <div class="absolute top-1/2 left-[45%] size-[1200px] -translate-y-1/2 rounded-full max-lg:hidden [mask-image:radial-gradient(circle,black_30%,transparent_70%)]" aria-hidden="true">
+    <PaintFlowShader class="size-full" />
+  </div>
+  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
+    <p class="text-base font-medium text-brand-accent">Sander Janssen · Web Development</p>
+    <h1 class="mt-4 max-w-[20ch] font-display text-5xl uppercase text-balance text-white sm:text-6xl lg:text-7xl">High-quality websites for cultural & social organizations</h1>
+    <div class="mt-10 flex flex-wrap items-start gap-8">
+      <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="rounded-full bg-brand-accent px-8 py-4 text-lg font-semibold text-white shadow-lg shadow-brand-accent/25 transition duration-200 hover:shadow-xl hover:shadow-brand-accent/30 hover:scale-105 active:scale-95 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">Say hello</a>
+      <div class="max-w-[48ch] space-y-4">
+        <p class="text-lg text-pretty text-neutral-300">Solid, premium websites without overcomplicated tech. Let's dig into the "why" behind your ideas and build features that actually move the needle.</p>
+        <p class="text-lg text-pretty text-neutral-400">I work directly with you, move fast, and build websites preferably for organizations driven by purpose, not just profit.</p>
+      </div>
+    </div>
+  </div>
+</section>
