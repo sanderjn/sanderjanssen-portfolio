@@ -5,13 +5,15 @@ import Hero from '../components/Hero.astro';
 import NumberedListItem from '../components/NumberedListItem.astro';
 import Testimonial from '../components/Testimonial.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout>
   <div class="min-h-dvh overflow-x-hidden bg-neutral-950 font-sans text-neutral-100 grain">
 
-    <Hero class="pt-16 lg:pt-20" />
+    <Header />
+    <Hero class="lg:pt-20" />
 
     <section class="border-t border-white/10 py-16 lg:py-20">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
@@ -21,7 +23,7 @@ import Footer from '../components/Footer.astro';
             <ul data-animate-parent role="list" class="mt-8 space-y-6">
               <NumberedListItem number="01" delay={0} color="gradient-warm-number [--i:0]">Functional web design</NumberedListItem>
               <NumberedListItem number="02" delay={1} color="gradient-warm-number [--i:1]">Custom website development</NumberedListItem>
-              <NumberedListItem number="03" delay={2} color="gradient-warm-number [--i:2]">CMS development (<a href="https://statamic.com/partners/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent link-underline hover:text-brand-accent-light">Statamic Partner <ExternalLinkIcon /></a>)</NumberedListItem>
+              <NumberedListItem number="03" delay={2} color="gradient-warm-number [--i:2]">CMS development (<a href="https://statamic.com/partners/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent link-underline text-nowrap hover:text-brand-accent-light">Statamic Partner <ExternalLinkIcon /></a>)</NumberedListItem>
             </ul>
           </div>
           <div>
@@ -36,7 +38,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <section class="border-t border-white/10 py-20 lg:py-28">
+    <section class="border-t border-white/10 py-16 lg:py-28">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 data-animate class="font-display text-3xl uppercase tracking-wide text-balance text-white">Client feedback</h2>
         <div data-testimonial-group class="mt-12 space-y-10">
@@ -63,10 +65,10 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <section class="border-t border-white/10 py-20 lg:py-28">
+    <section class="border-t border-white/10 py-16 lg:py-28">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 data-animate class="font-display text-3xl uppercase tracking-wide text-balance text-white">Recent projects</h2>
-        <div class="mt-12 space-y-40">
+        <div class="mt-12 space-y-16 sm:space-y-24 lg:space-y-40">
           <ProjectCard
             href="https://www.boringfestival.nl/"
             image="/img/boring.jpg"
@@ -139,7 +141,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
-    <section class="border-t border-white/10 py-20 lg:py-28">
+    <section class="border-t border-white/10 py-16 lg:py-28">
       <div class="mx-auto max-w-7xl px-6 lg:px-8">
         <h2 data-animate class="font-display text-3xl uppercase tracking-wide text-balance text-white">About me</h2>
         <div class="mt-8 grid gap-12 lg:grid-cols-[3fr_2fr]">
@@ -155,7 +157,7 @@ import Footer from '../components/Footer.astro';
               <li data-animate style="--stagger: 0" class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full gradient-warm-dot [--i:0] [--steps:4] h-lh" aria-hidden="true"></span>Surfing</li>
               <li data-animate style="--stagger: 1" class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full gradient-warm-dot [--i:1] [--steps:4] h-lh" aria-hidden="true"></span>Playing with AI</li>
               <li data-animate style="--stagger: 2" class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full gradient-warm-dot [--i:2] [--steps:4] h-lh" aria-hidden="true"></span>Listening to a podcast</li>
-              <li data-animate style="--stagger: 3" class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full gradient-warm-dot [--i:3] [--steps:4] h-lh" aria-hidden="true"></span><span>Searching for tracks to use in <a href="https://soundcloud.com/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent link-underline hover:text-brand-accent-light">my DJ sets <ExternalLinkIcon class="size-3.5" /></a></span></li>
+              <li data-animate style="--stagger: 3" class="flex items-start gap-3 text-lg text-neutral-300"><span class="size-1.5 shrink-0 rounded-full gradient-warm-dot [--i:3] [--steps:4] h-lh" aria-hidden="true"></span><span>Searching for tracks to use in <a href="https://soundcloud.com/sanderjanssen" target="_blank" rel="noopener noreferrer" class="text-brand-accent link-underline text-nowrap hover:text-brand-accent-light">my DJ sets <ExternalLinkIcon class="size-3.5" /></a></span></li>
             </ul>
           </div>
         </div>

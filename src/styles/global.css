@@ -117,6 +117,18 @@
   }
 }
 
+/* Sticky header */
+[data-sticky-header] {
+  transition: background-color 300ms var(--ease-out-strong), border-color 300ms var(--ease-out-strong), backdrop-filter 300ms var(--ease-out-strong);
+}
+
+[data-sticky-header].is-visible {
+  background-color: rgb(10 10 10 / 0.8);
+  border-bottom-color: rgb(255 255 255 / 0.05);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
 /* Testimonial typing animation */
 [data-testimonial] {
   opacity: 0;

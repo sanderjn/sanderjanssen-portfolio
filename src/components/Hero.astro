@@ -8,25 +8,25 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<section class:list={['relative overflow-hidden py-20 lg:py-28', className]}>
-  <div class="absolute top-1/2 left-[45%] size-[1200px] -translate-y-1/2 rounded-full max-lg:hidden [mask-image:radial-gradient(circle,black_30%,transparent_70%)]" aria-hidden="true">
+<section class:list={['relative overflow-hidden pb-16 lg:py-28', className]}>
+  <div class="-mx-12 aspect-[16/9] overflow-hidden [mask-image:radial-gradient(ellipse_80%_90%_at_60%_30%,black_40%,transparent_70%)] lg:absolute lg:top-0 lg:right-0 lg:mx-0 lg:aspect-auto lg:size-[940px] lg:[mask-image:radial-gradient(circle_at_70%_30%,black_20%,transparent_60%)]" aria-hidden="true">
     <PaintFlowShader class="size-full" />
   </div>
-  <div class="relative mx-auto max-w-7xl px-6 lg:px-8">
-    <header data-animate class="flex items-center gap-3">
+  <div class="relative -mt-24 mx-auto max-w-7xl px-6 lg:mt-0 lg:px-8">
+    <header data-hero-header data-animate class="flex items-center gap-3 max-lg:hidden">
       <img src="/img/profile.jpg" alt="Sander Janssen" class="size-10 rounded-full object-cover outline-1 -outline-offset-1 outline-white/10" />
       <div>
         <p class="text-base font-medium text-white">Sander Janssen</p>
         <p class="text-base text-neutral-500">Web Development</p>
       </div>
     </header>
-    <h1 data-animate style="--stagger: 1" class="mt-6 max-w-[20ch] font-display text-5xl uppercase text-balance text-white sm:text-6xl lg:text-7xl">High-quality websites for cultural & social organizations</h1>
-    <div data-animate style="--stagger: 2" class="mt-10 flex flex-wrap items-start gap-8">
-      <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="rounded-full gradient-cta-warm px-8 py-4 text-lg font-semibold text-white btn-3d-bevel transition-[transform,box-shadow] duration-160 ease-out-strong active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">Say hello</a>
+    <h1 data-animate style="--stagger: 1" class="font-display text-4xl uppercase text-balance text-white lg:mt-6 sm:text-6xl lg:text-8xl">High-quality websites for cultural & social organizations</h1>
+    <div data-animate style="--stagger: 2" class="mt-6 grid gap-8 lg:grid-cols-[1fr_auto] lg:items-end">
       <div class="max-w-[48ch] space-y-4">
         <p class="text-lg text-pretty text-neutral-300">Solid, premium websites without overcomplicated tech. Let's dig into the "why" behind your ideas and build features that actually move the needle.</p>
         <p class="text-lg text-pretty text-neutral-400">I work directly with you, move fast, and build websites preferably for organizations driven by purpose, not just profit.</p>
       </div>
+      <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="w-full text-center sm:w-auto rounded-full gradient-cta-warm px-8 py-4 text-lg font-semibold text-white btn-3d-bevel transition-[transform,box-shadow] duration-160 ease-out-strong active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent lg:self-end">Say hello</a>
     </div>
   </div>
 </section>

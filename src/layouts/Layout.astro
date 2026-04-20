@@ -36,6 +36,15 @@ const { title = 'Sander Janssen — Web Development' } = Astro.props;
           });
         });
 
+        var stickyHeader = document.querySelector('[data-sticky-header]');
+        var heroHeader = document.querySelector('[data-hero-header]');
+        if (stickyHeader && heroHeader) {
+          var stickyObs = new IntersectionObserver(function (entries) {
+            stickyHeader.classList.toggle('is-visible', !entries[0].isIntersecting);
+          });
+          stickyObs.observe(heroHeader);
+        }
+
         var group = document.querySelector('[data-testimonial-group]');
         if (group) {
           var testimonialObserver = new IntersectionObserver(function (entries) {
