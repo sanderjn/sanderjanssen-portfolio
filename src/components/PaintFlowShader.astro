@@ -155,10 +155,12 @@ void main() {
     resize();
 
     let frame: number;
+    let running = true;
     const start = performance.now();
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function render() {
+      if (!running) return;
       const elapsed = (performance.now() - start) / 1000;
       gl!.viewport(0, 0, canvas!.width, canvas!.height);
       gl!.uniform1f(uTime, elapsed);
@@ -166,6 +168,29 @@ void main() {
       gl!.drawArrays(gl!.TRIANGLE_STRIP, 0, 4);
       if (!prefersReducedMotion) frame = requestAnimationFrame(render);
     }
+
+    const io = new IntersectionObserver(function (entries) {
+      if (entries[0].isIntersecting) {
+        if (!running) {
+          running = true;
+          frame = requestAnimationFrame(render);
+        }
+      } else {
+        running = false;
+        cancelAnimationFrame(frame);
+      }
+    });
+    io.observe(canvas);
+
+    document.addEventListener('visibilitychange', function () {
+      if (document.hidden) {
+        running = false;
+        cancelAnimationFrame(frame);
+      } else if (!prefersReducedMotion) {
+        running = true;
+        frame = requestAnimationFrame(render);
+      }
+    });
 
     frame = requestAnimationFrame(render);
   }

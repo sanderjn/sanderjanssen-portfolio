@@ -7,6 +7,18 @@ import Testimonial from '../components/Testimonial.astro';
 import ProjectCard from '../components/ProjectCard.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+import imgBoring from '../assets/img/boring.jpg';
+import imgQuickhost from '../assets/img/quickhost.jpg';
+import imgLeqrmenu from '../assets/img/leqrmenu.jpg';
+import imgFodmapp from '../assets/img/fodmapp.jpg';
+import imgVdv from '../assets/img/vdv.jpg';
+import imgWnc from '../assets/img/wnc.jpg';
+import imgKsf from '../assets/img/ksf.jpg';
+import imgBoonstra from '../assets/img/boonstra.jpg';
+import imgOlivier from '../assets/img/olivier-designpraktijk.jpeg';
+import imgMichel from '../assets/img/michel-ksf.jpeg';
+import imgWouter from '../assets/img/wouter-wnc.jpeg';
 ---
 
 <Layout>
@@ -45,20 +57,20 @@ import Footer from '../components/Footer.astro';
         <h2 data-animate class="font-display text-3xl uppercase tracking-wide text-balance text-white">Client feedback</h2>
         <div data-testimonial-group class="mt-12 space-y-10">
           <Testimonial
-            image="/img/olivier-designpraktijk.jpeg"
+            image={imgOlivier}
             quote={`The website has turned out really well! It feels smooth, responsive works as it should, and it includes (micro)transitions that truly enhance the website.`}
             author="Olivier Heida"
             company="De Designpraktijk"
           />
           <Testimonial
-            image="/img/michel-ksf.jpeg"
+            image={imgMichel}
             quote="Powerful craftsman!"
             author="Michel Jansen"
             company="Kleinstesoepfabriek"
             align="right"
           />
           <Testimonial
-            image="/img/wouter-wnc.jpeg"
+            image={imgWouter}
             quote={`Reliable \u2014 engaged \u2014 result-oriented \u2014 will not just assume anything`}
             author="Wouter de Vries"
             company="World Nautic Center"
@@ -73,7 +85,7 @@ import Footer from '../components/Footer.astro';
         <div class="mt-12 space-y-16 sm:space-y-24 lg:space-y-40">
           <ProjectCard
             href="https://www.boringfestival.nl/"
-            image="/img/boring.jpg"
+            image={imgBoring}
             tags="Web development · Statamic"
             title="Boring Festival 2026"
             description="A multilingual Statamic site with act filtering and a live display system for performances."
@@ -81,7 +93,7 @@ import Footer from '../components/Footer.astro';
           />
           <ProjectCard
             href="https://www.quickhost.nl/"
-            image="/img/quickhost.jpg"
+            image={imgQuickhost}
             tags="Web design · Web development · Statamic"
             title="Quickhost"
             description="A knowledge base and restyled order system that feels like one seamless experience."
@@ -90,7 +102,7 @@ import Footer from '../components/Footer.astro';
           />
           <ProjectCard
             href="https://leqrmenu.com"
-            image="/img/leqrmenu.jpg"
+            image={imgLeqrmenu}
             tags="Web design · Web development · Laravel"
             title="LEQR menu"
             description="A digital menu system for restaurants with real-time availability, dynamic pricing, and dietary filtering."
@@ -98,7 +110,7 @@ import Footer from '../components/Footer.astro';
           />
           <ProjectCard
             href="https://fodm.app"
-            image="/img/fodmapp.jpg"
+            image={imgFodmapp}
             tags="Web development · Laravel · Livewire"
             title="FODM.app"
             description="A recipe manager for the FODMAP diet, histamine intolerance, and other dietary needs."
@@ -107,7 +119,7 @@ import Footer from '../components/Footer.astro';
           />
           <ProjectCard
             href="https://www.villadelvallecallosa.com/"
-            image="/img/vdv.jpg"
+            image={imgVdv}
             tags="Web design · Web development"
             title="Villa del Valle"
             description="A multilingual WordPress site with seamless booking integration for a villa on the Costa Blanca."
@@ -115,7 +127,7 @@ import Footer from '../components/Footer.astro';
           />
           <ProjectCard
             href="https://www.worldnauticcenter.nl/"
-            image="/img/wnc.jpg"
+            image={imgWnc}
             tags="UX consultancy · Web development · Design system"
             title="World Nautic Center"
             description="A new front-end system improving design consistency and user experience across 10+ websites."
@@ -124,7 +136,7 @@ import Footer from '../components/Footer.astro';
           />
           <ProjectCard
             href="https://kleinstesoepfabriek.nl/"
-            image="/img/ksf.jpg"
+            image={imgKsf}
             tags="Web development · E-commerce"
             title="Kleinstesoepfabriek"
             description="An e-commerce site with extensive WooCommerce customization for organic and fairtrade soups."
@@ -132,7 +144,7 @@ import Footer from '../components/Footer.astro';
           />
           <ProjectCard
             href="https://conversiekracht.nl"
-            image="/img/boonstra.jpg"
+            image={imgBoonstra}
             tags="Web development · WordPress"
             title="Conversiekracht"
             description="A WordPress site with interactive features including a revenue calculator for conversion optimization."

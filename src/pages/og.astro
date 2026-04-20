@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import PaintFlowShader from '../components/PaintFlowShader.astro';
+import profileImg from '../assets/img/profile.jpg';
 ---
 
 <!doctype html>
@@ -8,9 +10,20 @@ import PaintFlowShader from '../components/PaintFlowShader.astro';
     <meta charset="utf-8" />
     <meta name="viewport" content="width=1200" />
     <meta name="robots" content="noindex, nofollow" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,100..1000&display=swap" rel="stylesheet" />
+    <style>
+      @font-face {
+        font-family: "Anton";
+        src: url("../fonts/Anton-Regular.ttf") format("truetype");
+        font-weight: 400;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: "DM Sans";
+        src: url("../fonts/DMSans-Variable.ttf") format("truetype");
+        font-weight: 100 1000;
+        font-display: swap;
+      }
+    </style>
     <title>OG Image</title>
     <style>
       @import "tailwindcss";
@@ -148,7 +161,7 @@ import PaintFlowShader from '../components/PaintFlowShader.astro';
       <div class="content">
         <div class="text-side">
           <div class="name-block">
-            <img src="/img/profile.jpg" alt="Sander Janssen" class="profile-photo" />
+            <Image src={profileImg} alt="Sander Janssen" width={64} height={64} class="profile-photo" />
             <div class="name-text">
               <h2>Sander Janssen</h2>
               <p>Web Development</p>

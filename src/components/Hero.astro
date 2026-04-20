@@ -1,5 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import PaintFlowShader from './PaintFlowShader.astro';
+import profileImg from '../assets/img/profile.jpg';
 
 interface Props {
   class?: string;
@@ -14,7 +16,7 @@ const { class: className } = Astro.props;
   </div>
   <div data-hero-header class="relative -mt-24 mx-auto max-w-7xl px-6 lg:mt-0 lg:px-8">
     <header data-animate class="flex items-center gap-3 max-lg:hidden">
-      <img src="/img/profile.jpg" alt="Sander Janssen" class="size-10 rounded-full object-cover outline-1 -outline-offset-1 outline-white/10" />
+      <Image src={profileImg} alt="Sander Janssen" width={40} height={40} class="size-10 rounded-full object-cover outline-1 -outline-offset-1 outline-white/10" />
       <div>
         <p class="text-base font-medium text-white">Sander Janssen</p>
         <p class="text-base text-neutral-400">Web Development</p>
