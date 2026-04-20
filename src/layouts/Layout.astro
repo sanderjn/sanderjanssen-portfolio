@@ -3,20 +3,79 @@ import '../styles/global.css';
 
 interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title = 'Sander Janssen — Web Development' } = Astro.props;
+const {
+  title = 'Sander Janssen・Freelance Web Developer in Haarlem',
+  description = 'Freelance front-end developer in Haarlem building high-quality websites for cultural and social organizations. Functional web design, Statamic CMS partner.',
+} = Astro.props;
+
+const siteUrl = Astro.site?.href ?? 'https://sanderjanssen.nl';
+const canonicalURL = new URL(Astro.url.pathname, siteUrl);
+const ogImage = new URL('/img/og.png', siteUrl);
 ---
 
 <!doctype html>
 <html lang="en" class="antialiased">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <meta name="theme-color" content="#0a0a0a" />
+    <link rel="canonical" href={canonicalURL} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Sander Janssen" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
     <title>{title}</title>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Sander Janssen",
+          "url": "https://sanderjanssen.nl",
+        },
+        {
+          "@type": "ProfessionalService",
+          "name": "Sander Janssen",
+          "url": "https://sanderjanssen.nl",
+          "description": description,
+          "image": "https://sanderjanssen.nl/img/profile.jpg",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Haarlem",
+            "addressCountry": "NL",
+          },
+          "founder": {
+            "@type": "Person",
+            "name": "Sander Janssen",
+            "jobTitle": "Freelance Web Developer",
+            "url": "https://sanderjanssen.nl",
+            "sameAs": [
+              "https://github.com/sanderjn",
+              "https://bsky.app/profile/sanderjanssen.nl",
+            ],
+          },
+        },
+      ],
+    })} />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Sans:opsz,wght@9..40,100..1000&display=swap" rel="stylesheet" />
@@ -70,8 +129,6 @@ const { title = 'Sander Janssen — Web Development' } = Astro.props;
     </script>
   </head>
   <body>
-    <div class="isolate">
-      <slot />
-    </div>
+    <slot />
   </body>
 </html>
