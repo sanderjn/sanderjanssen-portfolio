@@ -16,7 +16,7 @@ const { image, quote, author, company, align = 'left', class: className } = Astr
   align === 'left' ? 'lg:max-w-[75%]' : 'lg:ml-auto lg:max-w-[75%] lg:flex-row-reverse',
   className
 ]}>
-  <img src={image} alt="" class="testimonial-avatar size-8 lg:size-12 shrink-0 rounded-full object-cover outline-1 -outline-offset-1 outline-brand-accent/20" />
+  <img src={image} alt={author} class="testimonial-avatar size-8 lg:size-12 shrink-0 rounded-full object-cover outline-1 -outline-offset-1 outline-brand-accent/20" />
   <div class="min-w-0">
     <blockquote class:list={['relative rounded-3xl bg-brand-accent/[0.07] ring-1 ring-brand-accent/10 px-5 py-5 sm:px-8 sm:py-6 rounded-bl-lg', align === 'right' && 'lg:rounded-bl-3xl lg:rounded-br-lg']}>
       <div class="typing-dots absolute inset-0 flex items-end gap-1 px-8 pb-7 sm:pb-9">

@@ -12,7 +12,9 @@ import Footer from '../components/Footer.astro';
 <Layout>
   <div class="min-h-dvh bg-neutral-950 font-sans text-neutral-100">
 
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <Header />
+    <main id="main-content">
     <Hero class="lg:pt-20" />
 
     <section class="border-t border-white/10 py-16 lg:py-20">
@@ -27,7 +29,7 @@ import Footer from '../components/Footer.astro';
             </ul>
           </div>
           <div>
-            <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-neutral-600">What I won't do</h2>
+            <h2 class="font-display text-3xl uppercase tracking-wide text-balance text-neutral-500">What I won't do</h2>
             <ul role="list" class="mt-8 space-y-6">
               <NumberedListItem number="01" muted>Use pre-made templates</NumberedListItem>
               <NumberedListItem number="02" muted>Day-to-day maintenance work</NumberedListItem>
@@ -149,7 +151,7 @@ import Footer from '../components/Footer.astro';
             <p class="max-w-2xl text-xl text-pretty text-neutral-300">Back in 2012 I built my first website for my driving instructor. Terrible code, but it worked, and I got 10 free driving lessons out of it.</p>
             <p class="mt-4 max-w-2xl text-lg text-pretty text-neutral-400">These days, I'm selective about the projects I take on. I want to work with organizations doing meaningful work: creative projects, social impact, things that actually help people.</p>
             <p class="mt-4 max-w-2xl text-lg text-pretty text-neutral-400">If you're doing work that matters, let's talk.</p>
-            <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="mt-8 inline-flex rounded-full gradient-cta-warm px-7 py-3.5 text-base font-semibold text-white btn-3d-bevel transition-[transform,box-shadow] duration-160 ease-out-strong active:scale-[0.97] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-brand-accent">Say hello</a>
+            <a href="mailto:hello@sanderjanssen.nl?Subject=Hello" class="mt-8 inline-flex rounded-full gradient-cta-warm px-7 py-3.5 text-base font-semibold text-white btn-3d-bevel transition-[transform,box-shadow] duration-160 ease-out-strong active:scale-[0.97]">Say hello</a>
           </div>
           <div>
             <h3 data-animate style="--stagger: 1" class="font-display text-2xl uppercase tracking-wide text-balance text-white">When I'm not coding, I'm probably...</h3>
@@ -164,6 +166,7 @@ import Footer from '../components/Footer.astro';
       </div>
     </section>
 
+    </main>
     <Footer />
 
   </div>

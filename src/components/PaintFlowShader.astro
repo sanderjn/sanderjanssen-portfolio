@@ -6,7 +6,7 @@ interface Props {
 const { class: className } = Astro.props;
 ---
 
-<canvas id="shader-canvas" class:list={['', className]}></canvas>
+<canvas id="shader-canvas" aria-hidden="true" class:list={['', className]}></canvas>
 
 <script>
   const VERT = `
@@ -156,6 +156,7 @@ void main() {
 
     let frame: number;
     const start = performance.now();
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     function render() {
       const elapsed = (performance.now() - start) / 1000;
@@ -163,7 +164,7 @@ void main() {
       gl!.uniform1f(uTime, elapsed);
       gl!.uniform2f(uResolution, canvas!.width, canvas!.height);
       gl!.drawArrays(gl!.TRIANGLE_STRIP, 0, 4);
-      frame = requestAnimationFrame(render);
+      if (!prefersReducedMotion) frame = requestAnimationFrame(render);
     }
 
     frame = requestAnimationFrame(render);
