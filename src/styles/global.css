@@ -187,56 +187,28 @@
   -webkit-backdrop-filter: blur(12px);
 }
 
-/* Testimonial typing animation */
+/* Testimonial entrance */
 [data-testimonial] {
   opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 200ms var(--ease-out-strong), transform 200ms var(--ease-out-strong);
+  transition: opacity 200ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 [data-testimonial].is-visible {
   opacity: 1;
-  transform: translateY(0);
 }
 
-[data-testimonial] .typing-dots {
-  transition: opacity 150ms ease-out;
-}
-
-[data-testimonial].is-sent .typing-dots {
+[data-testimonial-bubble] {
   opacity: 0;
+  transform: translateY(6px) scale(0.97);
+  transition:
+    opacity 280ms cubic-bezier(0.23, 1, 0.32, 1),
+    transform 280ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-[data-testimonial] .testimonial-text {
-  transition: opacity 150ms var(--ease-out-strong);
-}
-
-[data-testimonial].is-sent .testimonial-text {
-  visibility: visible;
+[data-testimonial].is-visible [data-testimonial-bubble] {
   opacity: 1;
-}
-
-.typing-dots span {
-  animation: typing-bounce 1.2s infinite ease-in-out both;
-}
-
-.typing-dots span:nth-child(2) {
-  animation-delay: 0.15s;
-}
-
-.typing-dots span:nth-child(3) {
-  animation-delay: 0.3s;
-}
-
-@keyframes typing-bounce {
-  0%, 80%, 100% {
-    transform: scale(0.7);
-    opacity: 0.35;
-  }
-  40% {
-    transform: scale(1);
-    opacity: 1;
-  }
+  transform: translateY(0) scale(1);
+  transition-delay: 150ms;
 }
 
 /* Scroll-triggered animations */
@@ -262,22 +234,11 @@
     transition: none;
   }
 
-  [data-testimonial] {
+  [data-testimonial],
+  [data-testimonial-bubble] {
     opacity: 1;
     transform: none;
     transition: none;
-  }
-
-  [data-testimonial] .testimonial-text {
-    visibility: visible;
-  }
-
-  .typing-dots {
-    display: none;
-  }
-
-  .typing-dots span {
-    animation: none;
   }
 }
 
@@ -287,16 +248,9 @@
     transform: none;
   }
 
-  [data-testimonial] {
+  [data-testimonial],
+  [data-testimonial-bubble] {
     opacity: 1;
     transform: none;
-  }
-
-  [data-testimonial] .testimonial-text {
-    visibility: visible;
-  }
-
-  .typing-dots {
-    display: none;
   }
 }

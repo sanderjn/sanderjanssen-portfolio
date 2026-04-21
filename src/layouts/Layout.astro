@@ -91,7 +91,6 @@ const profileImageUrl = new URL(profileImage.src, siteUrl).href;
           document.querySelectorAll('[data-animate], [data-animate-parent]').forEach(function (el) { el.classList.add('in-view'); });
           document.querySelectorAll('[data-testimonial]').forEach(function (el) {
             el.classList.add('is-visible');
-            el.classList.add('is-sent');
           });
         } else {
           var observer = new IntersectionObserver(function (entries) {
@@ -114,17 +113,8 @@ const profileImageUrl = new URL(profileImage.src, siteUrl).href;
               if (!entries[0].isIntersecting) return;
               testimonialObserver.disconnect();
               var items = group.querySelectorAll('[data-testimonial]');
-              var offset = 0;
-              items.forEach(function (el) {
-                var chars = parseInt(el.dataset.chars) || 40;
-                var typingDuration = Math.min(300 + chars * 3, 800);
-                var showDelay = offset;
-                var sendDelay = offset + typingDuration;
-
-                setTimeout(function () { el.classList.add('is-visible'); }, showDelay);
-                setTimeout(function () { el.classList.add('is-sent'); }, sendDelay);
-
-                offset = sendDelay + 150;
+              items.forEach(function (el, i) {
+                setTimeout(function () { el.classList.add('is-visible'); }, i * 120);
               });
             }, { rootMargin: '0px 0px -10% 0px' });
             testimonialObserver.observe(group);

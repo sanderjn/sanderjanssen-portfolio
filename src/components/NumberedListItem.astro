@@ -10,7 +10,7 @@ interface Props {
 const { number, muted = false, color = 'text-brand-accent', delay, class: className } = Astro.props;
 ---
 
-<li class:list={['flex gap-4', className]} {...(delay !== undefined ? { 'data-animate': '', style: `--stagger: ${delay}` } : {})}>
+<li class:list={['flex gap-3', className]} {...(delay !== undefined ? { 'data-animate': '', style: `--stagger: ${delay}` } : {})}>
   <span class:list={['w-6 shrink-0 font-display text-2xl sm:text-3xl sm:w-8', muted ? 'text-neutral-700' : color]}>{number}</span>
   <span class:list={['pt-1 text-lg', muted ? 'text-neutral-500' : 'text-neutral-300']}>
     <slot />

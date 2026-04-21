@@ -14,20 +14,15 @@ interface Props {
 const { image, quote, author, company, align = 'left', class: className } = Astro.props;
 ---
 
-<div data-testimonial data-chars={quote.length} class:list={[
+<div data-testimonial class:list={[
   'flex items-end gap-3 sm:gap-5',
   align === 'left' ? 'lg:max-w-[75%]' : 'lg:ml-auto lg:max-w-[75%] lg:flex-row-reverse',
   className
 ]}>
   <Image src={image} alt={author} width={48} height={48} loading="lazy" class="testimonial-avatar size-8 lg:size-12 shrink-0 rounded-full object-cover outline-1 -outline-offset-1 outline-brand-accent/20" />
   <div class="min-w-0">
-    <blockquote class:list={['relative rounded-3xl bg-brand-accent/[0.07] ring-1 ring-brand-accent/10 px-5 py-5 sm:px-8 sm:py-6 rounded-bl-lg', align === 'right' && 'lg:rounded-bl-3xl lg:rounded-br-lg']}>
-      <div class="typing-dots absolute inset-0 flex items-end gap-1 px-8 pb-7 sm:pb-9">
-        <span class="size-1.5 rounded-full bg-neutral-400/60"></span>
-        <span class="size-1.5 rounded-full bg-neutral-400/60"></span>
-        <span class="size-1.5 rounded-full bg-neutral-400/60"></span>
-      </div>
-      <p class="testimonial-text text-base sm:text-lg font-medium text-white text-pretty invisible">{quote}</p>
+    <blockquote data-testimonial-bubble class:list={['relative rounded-3xl bg-brand-accent/[0.07] ring-1 ring-brand-accent/10 px-5 py-5 sm:px-8 sm:py-6 rounded-bl-lg', align === 'right' && 'lg:rounded-bl-3xl lg:rounded-br-lg']}>
+      <p class="text-base sm:text-lg font-medium text-white text-pretty">{quote}</p>
     </blockquote>
     <p class:list={['mt-2 text-sm sm:text-base text-neutral-400', align === 'right' && 'lg:text-right']}>{author} &middot; <span class="text-brand-accent">{company}</span></p>
   </div>
