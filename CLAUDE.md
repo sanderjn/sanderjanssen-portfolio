@@ -64,3 +64,7 @@ Professional portfolio targeting clients (cultural & social organizations), not 
 - `Testimonial` — `image`, `quote`, `author`, `company`, `align?` ("right")
 - `NumberedListItem` — `number`, `delay?` (stagger index), `color?` (gradient class), `muted?`
 - Most components accept `class?` for external styling
+
+## Attribution
+
+- Never add attribution: no `Co-Authored-By` trailer, no "Generated with/by Claude Code", no session links and no other reference to Claude, AI or Anthropic in commits, PRs, issues, comments, docs or code.
